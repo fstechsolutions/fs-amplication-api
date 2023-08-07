@@ -198,6 +198,12 @@
     "attributes": "*"
   },
   {
+    "role": "user",
+    "resource": "Review",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
     "role": "admin",
     "resource": "Review",
     "action": "delete:any",
@@ -408,6 +414,12 @@
     "attributes": "*"
   },
   {
+    "role": "user",
+    "resource": "Address",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
     "role": "admin",
     "resource": "Address",
     "action": "read:own",
@@ -469,6 +481,12 @@
   },
   {
     "role": "appManager",
+    "resource": "Address",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
     "resource": "Address",
     "action": "read:any",
     "attributes": "*"
