@@ -48,6 +48,12 @@
     "attributes": "*"
   },
   {
+    "role": "appManager",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
     "role": "admin",
     "resource": "User",
     "action": "delete:any",
@@ -90,31 +96,13 @@
     "attributes": "*"
   },
   {
-    "role": "admin",
-    "resource": "Product",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
     "role": "appManager",
     "resource": "Product",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
-    "resource": "Product",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
     "role": "appManager",
-    "resource": "Product",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
     "resource": "Product",
     "action": "delete:any",
     "attributes": "*"
@@ -198,18 +186,6 @@
     "attributes": "*"
   },
   {
-    "role": "user",
-    "resource": "Review",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Review",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
     "role": "appManager",
     "resource": "Review",
     "action": "read:any",
@@ -234,18 +210,6 @@
     "attributes": "*"
   },
   {
-    "role": "user",
-    "resource": "Profile",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Profile",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
     "role": "appManager",
     "resource": "Profile",
     "action": "create:any",
@@ -288,40 +252,16 @@
     "attributes": "*"
   },
   {
-    "role": "user",
-    "resource": "Profile",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "Profile",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
     "role": "appManager",
     "resource": "Profile",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "user",
-    "resource": "Profile",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
     "role": "admin",
     "resource": "Profile",
     "action": "read:any",
     "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Profile",
-    "action": "read:any",
-    "attributes": "*,!city,!state,!user,!updatedAt,!createdAt,!id"
   },
   {
     "role": "appManager",
@@ -384,12 +324,6 @@
     "attributes": "*"
   },
   {
-    "role": "user",
-    "resource": "Order",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
     "role": "admin",
     "resource": "Order",
     "action": "delete:any",
@@ -415,18 +349,6 @@
   },
   {
     "role": "appManager",
-    "resource": "Address",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Address",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
     "resource": "Address",
     "action": "read:own",
     "attributes": "*"
@@ -487,18 +409,6 @@
   },
   {
     "role": "appManager",
-    "resource": "Address",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "Address",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
     "resource": "Address",
     "action": "read:any",
     "attributes": "*"
