@@ -3,3 +3,5 @@
 *.lock
 apps/product-service/.pnp.cjs
 apps/product-service/.pnp.loader.mjs
+apps/product-service-admin/.pnp.cjs
+apps/product-service-admin/.pnp.loader.mjs
