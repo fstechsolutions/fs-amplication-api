@@ -198,6 +198,12 @@
     "attributes": "*"
   },
   {
+    "role": "user",
+    "resource": "Review",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
     "role": "admin",
     "resource": "Review",
     "action": "delete:any",
