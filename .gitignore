@@ -1,2 +1,5 @@
 
 .vscode/settings.json
+*.lock
+apps/product-service/.pnp.cjs
+apps/product-service/.pnp.loader.mjs
