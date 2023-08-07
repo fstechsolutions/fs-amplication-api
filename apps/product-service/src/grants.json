@@ -6,12 +6,6 @@
     "attributes": "*"
   },
   {
-    "role": "user",
-    "resource": "User",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
     "role": "admin",
     "resource": "User",
     "action": "read:own",
@@ -54,18 +48,6 @@
     "attributes": "*"
   },
   {
-    "role": "appManager",
-    "resource": "User",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "User",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
     "role": "admin",
     "resource": "User",
     "action": "delete:any",
@@ -73,12 +55,6 @@
   },
   {
     "role": "appManager",
-    "resource": "User",
-    "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
     "resource": "User",
     "action": "read:any",
     "attributes": "*"
