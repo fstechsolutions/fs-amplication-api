@@ -1,0 +1,691 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Address {
+  addressType: EnumAddressAddressType
+  city: String
+  createdAt: DateTime!
+  id: String!
+  postalCode: String
+  state: String
+  street: String!
+  street2: String
+  updatedAt: DateTime!
+  user: User
+}
+
+input AddressCreateInput {
+  addressType: EnumAddressAddressType
+  city: String
+  postalCode: String
+  state: String
+  street: String!
+  street2: String
+  user: UserWhereUniqueInput!
+}
+
+input AddressCreateNestedManyWithoutUsersInput {
+  connect: [AddressWhereUniqueInput!]
+}
+
+input AddressListRelationFilter {
+  every: AddressWhereInput
+  none: AddressWhereInput
+  some: AddressWhereInput
+}
+
+input AddressOrderByInput {
+  ID: SortOrder
+  addressType: SortOrder
+  city: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  postalCode: SortOrder
+  state: SortOrder
+  street: SortOrder
+  street2: SortOrder
+  updatedAt: SortOrder
+}
+
+input AddressUpdateInput {
+  addressType: EnumAddressAddressType
+  city: String
+  postalCode: String
+  state: String
+  street: String
+  street2: String
+  user: UserWhereUniqueInput
+}
+
+input AddressUpdateManyWithoutUsersInput {
+  connect: [AddressWhereUniqueInput!]
+  disconnect: [AddressWhereUniqueInput!]
+  set: [AddressWhereUniqueInput!]
+}
+
+input AddressWhereInput {
+  addressType: EnumAddressAddressType
+  city: StringNullableFilter
+  id: StringFilter
+  postalCode: StringNullableFilter
+  state: StringNullableFilter
+  street: StringFilter
+  street2: StringNullableFilter
+  user: UserWhereUniqueInput
+}
+
+input AddressWhereUniqueInput {
+  id: String!
+}
+
+input Credentials {
+  password: String!
+  username: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum EnumAddressAddressType {
+  Billing
+  Delivery
+  Mailing
+}
+
+enum EnumOrderStatus {
+  Cancelled
+  Completed
+  Delivered
+  Inprogress
+  Outfordelivery
+}
+
+input FloatFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: Float
+  notIn: [Float!]
+}
+
+input FloatNullableFilter {
+  equals: Float
+  gt: Float
+  gte: Float
+  in: [Float!]
+  lt: Float
+  lte: Float
+  not: Float
+  notIn: [Float!]
+}
+
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: Int
+  notIn: [Int!]
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+input JsonFilter {
+  equals: JSONObject
+  not: JSONObject
+}
+
+type MetaQueryPayload {
+  count: Float!
+}
+
+type Mutation {
+  createAddress(data: AddressCreateInput!): Address!
+  createOrder(data: OrderCreateInput!): Order!
+  createProduct(data: ProductCreateInput!): Product!
+  createProfile(data: ProfileCreateInput!): Profile!
+  createReview(data: ReviewCreateInput!): Review!
+  createUser(data: UserCreateInput!): User!
+  deleteAddress(where: AddressWhereUniqueInput!): Address!
+  deleteOrder(where: OrderWhereUniqueInput!): Order!
+  deleteProduct(where: ProductWhereUniqueInput!): Product!
+  deleteProfile(where: ProfileWhereUniqueInput!): Profile!
+  deleteReview(where: ReviewWhereUniqueInput!): Review!
+  deleteUser(where: UserWhereUniqueInput!): User!
+  login(credentials: Credentials!): UserInfo!
+  updateAddress(data: AddressUpdateInput!, where: AddressWhereUniqueInput!): Address!
+  updateOrder(data: OrderUpdateInput!, where: OrderWhereUniqueInput!): Order!
+  updateProduct(data: ProductUpdateInput!, where: ProductWhereUniqueInput!): Product!
+  updateProfile(data: ProfileUpdateInput!, where: ProfileWhereUniqueInput!): Profile!
+  updateReview(data: ReviewUpdateInput!, where: ReviewWhereUniqueInput!): Review!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+}
+
+type Order {
+  createdAt: DateTime!
+  deliveryCharge: Float
+  discount: String
+  id: String!
+  notes: String
+  products(orderBy: [ProductOrderByInput!], skip: Float, take: Float, where: ProductWhereInput): [Product!]!
+  status: EnumOrderStatus
+  total: Float
+  updatedAt: DateTime!
+  user: User
+}
+
+input OrderCreateInput {
+  deliveryCharge: Float
+  discount: String
+  notes: String
+  products: ProductCreateNestedManyWithoutOrdersInput
+  status: EnumOrderStatus!
+  total: Float
+  user: UserWhereUniqueInput
+}
+
+input OrderCreateNestedManyWithoutUsersInput {
+  connect: [OrderWhereUniqueInput!]
+}
+
+input OrderListRelationFilter {
+  every: OrderWhereInput
+  none: OrderWhereInput
+  some: OrderWhereInput
+}
+
+input OrderOrderByInput {
+  createdAt: SortOrder
+  deliveryCharge: SortOrder
+  discount: SortOrder
+  id: SortOrder
+  notes: SortOrder
+  status: SortOrder
+  total: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input OrderUpdateInput {
+  deliveryCharge: Float
+  discount: String
+  notes: String
+  products: ProductUpdateManyWithoutOrdersInput
+  status: EnumOrderStatus
+  total: Float
+  user: UserWhereUniqueInput
+}
+
+input OrderUpdateManyWithoutUsersInput {
+  connect: [OrderWhereUniqueInput!]
+  disconnect: [OrderWhereUniqueInput!]
+  set: [OrderWhereUniqueInput!]
+}
+
+input OrderWhereInput {
+  discount: StringNullableFilter
+  id: StringFilter
+  products: ProductListRelationFilter
+  status: EnumOrderStatus
+  total: FloatNullableFilter
+  user: UserWhereUniqueInput
+}
+
+input OrderWhereUniqueInput {
+  id: String!
+}
+
+type Product {
+  createdAt: DateTime!
+  description: String
+  id: String!
+  images: JSON
+  menuName: String
+  name: String!
+  nutrients: String
+  order: Order
+  price: Float!
+  productType: String!
+  reviews: Review
+  sku: String
+  slug: String!
+  stripeBuyNowLink: String
+  stripeBuyNowLinkTestLink: String
+  stripeProdId: String
+  stripeTestId: String
+  summary: String
+  tags: String
+  thumbnail: String
+  updatedAt: DateTime!
+  users: User
+  variants: JSON
+}
+
+input ProductCreateInput {
+  description: String
+  images: JSON
+  menuName: String
+  name: String!
+  nutrients: String
+  order: OrderWhereUniqueInput
+  price: Float!
+  productType: String!
+  reviews: ReviewWhereUniqueInput
+  sku: String
+  slug: String!
+  stripeBuyNowLink: String
+  stripeBuyNowLinkTestLink: String
+  stripeProdId: String
+  stripeTestId: String
+  summary: String
+  tags: String
+  thumbnail: String
+  users: UserWhereUniqueInput
+  variants: JSON
+}
+
+input ProductCreateNestedManyWithoutOrdersInput {
+  connect: [ProductWhereUniqueInput!]
+}
+
+input ProductCreateNestedManyWithoutUsersInput {
+  connect: [ProductWhereUniqueInput!]
+}
+
+input ProductListRelationFilter {
+  every: ProductWhereInput
+  none: ProductWhereInput
+  some: ProductWhereInput
+}
+
+input ProductOrderByInput {
+  createdAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  images: SortOrder
+  menuName: SortOrder
+  name: SortOrder
+  nutrients: SortOrder
+  orderId: SortOrder
+  price: SortOrder
+  productType: SortOrder
+  reviewsId: SortOrder
+  sku: SortOrder
+  slug: SortOrder
+  stripeBuyNowLink: SortOrder
+  stripeBuyNowLinkTestLink: SortOrder
+  stripeProdId: SortOrder
+  stripeTestId: SortOrder
+  summary: SortOrder
+  tags: SortOrder
+  thumbnail: SortOrder
+  updatedAt: SortOrder
+  usersId: SortOrder
+  variants: SortOrder
+}
+
+input ProductUpdateInput {
+  description: String
+  images: JSON
+  menuName: String
+  name: String
+  nutrients: String
+  order: OrderWhereUniqueInput
+  price: Float
+  productType: String
+  reviews: ReviewWhereUniqueInput
+  sku: String
+  slug: String
+  stripeBuyNowLink: String
+  stripeBuyNowLinkTestLink: String
+  stripeProdId: String
+  stripeTestId: String
+  summary: String
+  tags: String
+  thumbnail: String
+  users: UserWhereUniqueInput
+  variants: JSON
+}
+
+input ProductUpdateManyWithoutOrdersInput {
+  connect: [ProductWhereUniqueInput!]
+  disconnect: [ProductWhereUniqueInput!]
+  set: [ProductWhereUniqueInput!]
+}
+
+input ProductUpdateManyWithoutUsersInput {
+  connect: [ProductWhereUniqueInput!]
+  disconnect: [ProductWhereUniqueInput!]
+  set: [ProductWhereUniqueInput!]
+}
+
+input ProductWhereInput {
+  id: StringFilter
+  menuName: StringNullableFilter
+  name: StringFilter
+  order: OrderWhereUniqueInput
+  price: FloatFilter
+  productType: StringFilter
+  reviews: ReviewWhereUniqueInput
+  sku: StringNullableFilter
+  slug: StringFilter
+  stripeBuyNowLink: StringNullableFilter
+  stripeBuyNowLinkTestLink: StringNullableFilter
+  stripeProdId: StringNullableFilter
+  stripeTestId: StringNullableFilter
+  summary: StringNullableFilter
+  tags: StringNullableFilter
+  users: UserWhereUniqueInput
+  variants: JsonFilter
+}
+
+input ProductWhereUniqueInput {
+  id: String!
+}
+
+type Profile {
+  avatar: String
+  city: String
+  createdAt: DateTime!
+  id: String!
+  publicDisplayName: String!
+  publicUserInfo: String
+  state: String
+  updatedAt: DateTime!
+  user: User
+}
+
+input ProfileCreateInput {
+  avatar: String
+  city: String
+  publicDisplayName: String!
+  publicUserInfo: String
+  state: String
+  user: UserWhereUniqueInput!
+}
+
+input ProfileCreateNestedManyWithoutUsersInput {
+  connect: [ProfileWhereUniqueInput!]
+}
+
+input ProfileListRelationFilter {
+  every: ProfileWhereInput
+  none: ProfileWhereInput
+  some: ProfileWhereInput
+}
+
+input ProfileOrderByInput {
+  avatar: SortOrder
+  city: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  publicDisplayName: SortOrder
+  publicUserInfo: SortOrder
+  state: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input ProfileUpdateInput {
+  avatar: String
+  city: String
+  publicDisplayName: String
+  publicUserInfo: String
+  state: String
+  user: UserWhereUniqueInput
+}
+
+input ProfileUpdateManyWithoutUsersInput {
+  connect: [ProfileWhereUniqueInput!]
+  disconnect: [ProfileWhereUniqueInput!]
+  set: [ProfileWhereUniqueInput!]
+}
+
+input ProfileWhereInput {
+  avatar: StringNullableFilter
+  city: StringNullableFilter
+  id: StringFilter
+  publicDisplayName: StringFilter
+  state: StringNullableFilter
+  user: UserWhereUniqueInput
+}
+
+input ProfileWhereUniqueInput {
+  id: String!
+}
+
+type Query {
+  _addressesMeta(where: AddressWhereInput): MetaQueryPayload!
+  _ordersMeta(where: OrderWhereInput): MetaQueryPayload!
+  _productsMeta(where: ProductWhereInput): MetaQueryPayload!
+  _profilesMeta(where: ProfileWhereInput): MetaQueryPayload!
+  _reviewsMeta(where: ReviewWhereInput): MetaQueryPayload!
+  _usersMeta(where: UserWhereInput): MetaQueryPayload!
+  address(where: AddressWhereUniqueInput!): Address
+  addresses(orderBy: [AddressOrderByInput!], skip: Float, take: Float, where: AddressWhereInput): [Address!]!
+  order(where: OrderWhereUniqueInput!): Order
+  orders(orderBy: [OrderOrderByInput!], skip: Float, take: Float, where: OrderWhereInput): [Order!]!
+  product(where: ProductWhereUniqueInput!): Product
+  products(orderBy: [ProductOrderByInput!], skip: Float, take: Float, where: ProductWhereInput): [Product!]!
+  profile(where: ProfileWhereUniqueInput!): Profile
+  profiles(orderBy: [ProfileOrderByInput!], skip: Float, take: Float, where: ProfileWhereInput): [Profile!]!
+  review(where: ReviewWhereUniqueInput!): Review
+  reviews(orderBy: [ReviewOrderByInput!], skip: Float, take: Float, where: ReviewWhereInput): [Review!]!
+  user(where: UserWhereUniqueInput!): User
+  userInfo: UserInfo!
+  users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+}
+
+enum QueryMode {
+  Default
+  Insensitive
+}
+
+type Review {
+  createdAt: DateTime!
+  fullReview: String!
+  id: String!
+  numStars: Float!
+  productName: Product
+  summary: String!
+  totalNumReviews: Float
+  updatedAt: DateTime!
+  user: User
+  videoUrl: String
+}
+
+input ReviewCreateInput {
+  fullReview: String!
+  numStars: Float!
+  productName: ProductWhereUniqueInput!
+  summary: String!
+  totalNumReviews: Float
+  user: UserWhereUniqueInput
+  videoUrl: String
+}
+
+input ReviewCreateNestedManyWithoutUsersInput {
+  connect: [ReviewWhereUniqueInput!]
+}
+
+input ReviewListRelationFilter {
+  every: ReviewWhereInput
+  none: ReviewWhereInput
+  some: ReviewWhereInput
+}
+
+input ReviewOrderByInput {
+  createdAt: SortOrder
+  fullReview: SortOrder
+  id: SortOrder
+  name: SortOrder
+  numStars: SortOrder
+  summary: SortOrder
+  totalNumReviews: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+  videoUrl: SortOrder
+}
+
+input ReviewUpdateInput {
+  fullReview: String
+  numStars: Float
+  productName: ProductWhereUniqueInput
+  summary: String
+  totalNumReviews: Float
+  user: UserWhereUniqueInput
+  videoUrl: String
+}
+
+input ReviewUpdateManyWithoutUsersInput {
+  connect: [ReviewWhereUniqueInput!]
+  disconnect: [ReviewWhereUniqueInput!]
+  set: [ReviewWhereUniqueInput!]
+}
+
+input ReviewWhereInput {
+  id: StringFilter
+  numStars: IntFilter
+  productName: ProductWhereUniqueInput
+  user: UserWhereUniqueInput
+}
+
+input ReviewWhereUniqueInput {
+  id: String!
+}
+
+enum SortOrder {
+  Asc
+  Desc
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+type User {
+  addresses(orderBy: [AddressOrderByInput!], skip: Float, take: Float, where: AddressWhereInput): [Address!]!
+  createdAt: DateTime!
+  email: String!
+  favorites(orderBy: [ProductOrderByInput!], skip: Float, take: Float, where: ProductWhereInput): [Product!]!
+  firstName: String
+  id: String!
+  lastName: String
+  orders(orderBy: [OrderOrderByInput!], skip: Float, take: Float, where: OrderWhereInput): [Order!]!
+  phone: String
+  profiles(orderBy: [ProfileOrderByInput!], skip: Float, take: Float, where: ProfileWhereInput): [Profile!]!
+  reviews(orderBy: [ReviewOrderByInput!], skip: Float, take: Float, where: ReviewWhereInput): [Review!]!
+  roles: JSON!
+  updatedAt: DateTime!
+  username: String!
+}
+
+input UserCreateInput {
+  addresses: AddressCreateNestedManyWithoutUsersInput
+  email: String!
+  favorites: ProductCreateNestedManyWithoutUsersInput
+  firstName: String
+  lastName: String
+  orders: OrderCreateNestedManyWithoutUsersInput
+  password: String!
+  phone: String
+  profiles: ProfileCreateNestedManyWithoutUsersInput
+  reviews: ReviewCreateNestedManyWithoutUsersInput
+  roles: JSON!
+  username: String!
+}
+
+type UserInfo {
+  accessToken: String
+  id: String!
+  roles: [String!]!
+  username: String!
+}
+
+input UserOrderByInput {
+  createdAt: SortOrder
+  email: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  password: SortOrder
+  phone: SortOrder
+  roles: SortOrder
+  updatedAt: SortOrder
+  username: SortOrder
+}
+
+input UserUpdateInput {
+  addresses: AddressUpdateManyWithoutUsersInput
+  email: String
+  favorites: ProductUpdateManyWithoutUsersInput
+  firstName: String
+  lastName: String
+  orders: OrderUpdateManyWithoutUsersInput
+  password: String
+  phone: String
+  profiles: ProfileUpdateManyWithoutUsersInput
+  reviews: ReviewUpdateManyWithoutUsersInput
+  roles: JSON
+  username: String
+}
+
+input UserWhereInput {
+  addresses: AddressListRelationFilter
+  email: StringFilter
+  favorites: ProductListRelationFilter
+  firstName: StringNullableFilter
+  id: StringFilter
+  lastName: StringNullableFilter
+  orders: OrderListRelationFilter
+  phone: StringNullableFilter
+  profiles: ProfileListRelationFilter
+  reviews: ReviewListRelationFilter
+  username: StringFilter
+}
+
+input UserWhereUniqueInput {
+  id: String!
+}
