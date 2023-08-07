@@ -318,6 +318,12 @@
     "attributes": "*"
   },
   {
+    "role": "user",
+    "resource": "Profile",
+    "action": "read:any",
+    "attributes": "*,!city,!state,!user,!updatedAt,!createdAt,!id"
+  },
+  {
     "role": "appManager",
     "resource": "Order",
     "action": "read:own",
