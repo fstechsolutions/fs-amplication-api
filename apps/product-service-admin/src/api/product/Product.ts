@@ -1,0 +1,30 @@
+import { JsonValue } from "type-fest";
+import { Order } from "../order/Order";
+import { Review } from "../review/Review";
+import { User } from "../user/User";
+
+export type Product = {
+  createdAt: Date;
+  description: string | null;
+  id: string;
+  images: JsonValue;
+  menuName: string | null;
+  name: string;
+  nutrients: string | null;
+  order?: Order | null;
+  price: number;
+  productType: string;
+  reviews?: Review | null;
+  sku: string | null;
+  slug: string;
+  stripeBuyNowLink: string | null;
+  stripeBuyNowLinkTestLink: string | null;
+  stripeProdId: string | null;
+  stripeTestId: string | null;
+  summary: string | null;
+  tags: string | null;
+  thumbnail: string | null;
+  updatedAt: Date;
+  users?: User | null;
+  variants: JsonValue;
+};
